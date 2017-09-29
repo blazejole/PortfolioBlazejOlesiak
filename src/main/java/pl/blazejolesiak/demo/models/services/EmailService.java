@@ -25,7 +25,7 @@ public class EmailService {
             helper.setTo("blazej.olesiak@gmail.com");
             helper.setSubject("PortfolioContact");
             helper.setText("Wiadomość od uzytkownika: "+emailForm.getMessage() + " numer telefonu kontaktowego: "+ emailForm.getPhonenumber()+ " adres wysylajacego: "+ emailForm.getEmail());
-            helper.setReplyTo("Wiadomosc zwrotna: "+ emailForm.getEmail());
+            helper.setReplyTo(emailForm.getEmail());
         } catch (MessagingException e) {
             e.printStackTrace();
         }
