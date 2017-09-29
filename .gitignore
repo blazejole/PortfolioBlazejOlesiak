@@ -22,3 +22,5 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/src/main/resources/application.properties
+src/main/java/pl/blazejolesiak/demo/models/forms/

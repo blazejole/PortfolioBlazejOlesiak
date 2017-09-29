@@ -1,4 +1,4 @@
-package pl.blazejolesiak.demo.models.forms;
+package pl.blazejolesiak.demo.models.foms;
 
 
 public class EmailForm {
