@@ -1,7 +1,7 @@
-package pl.blazejolesiak.demo.models.foms;
+package pl.blazejolesiak.demo.models;
 
 
-public class EmailForm {
+public class EmailModel {
 
 
     private String name;
@@ -10,7 +10,7 @@ public class EmailForm {
     private String message;
 
 
-    public EmailForm() {
+    public EmailModel() {
     }
 
     public String getName() {

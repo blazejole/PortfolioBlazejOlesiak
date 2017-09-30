@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.blazejolesiak.demo.models.AboutModel;
 import pl.blazejolesiak.demo.models.ProjectModel;
 import pl.blazejolesiak.demo.models.TitleModel;
-import pl.blazejolesiak.demo.models.foms.EmailForm;
+import pl.blazejolesiak.demo.models.EmailModel;
 
 import pl.blazejolesiak.demo.models.repositories.IAboutMeRepository;
 import pl.blazejolesiak.demo.models.repositories.IProjectRepository;
@@ -47,13 +47,13 @@ public class MainController {
 
     @RequestMapping ("/")
     public String index(Model model){
-        model.addAttribute("emailForm", new EmailForm());
+        model.addAttribute("emailForm", new EmailModel());
         return "index";
     }
 
     @PostMapping("/")
-    public String sendEm(@ModelAttribute("emailForm") EmailForm emailForm,Model model){
-        emailService.sendMessage(emailForm);
+    public String sendEm(@ModelAttribute("emailModel") EmailModel emailModel, Model model){
+        emailService.sendMessage(emailModel);
         model.addAttribute("message" , "Wiadomosc wyslana pod adres: blazej.olesiak@gmail.com");
         return "index";
     }
@@ -61,7 +61,7 @@ public class MainController {
     //    @Autowired
 //    TemplateEngine templateEngine;
 //    @RequestMapping(value = "/", method = RequestMethod.POST)
-//    public String form(@RequestBody EmailForm emailForm,Model model){
+//    public String form(@RequestBody EmailModel emailForm,Model model){
 //        Context context = new Context();
 //        context.setVariable("name", "Name "+emailForm.getName());
 //        context.setVariable("phonenumber", "Phone "+emailForm.getPhonenumber());
@@ -71,7 +71,7 @@ public class MainController {
 //
 //        emailService.sendMessage(bodyHTML,emailForm.getEmail());
 //        model.addAttribute("success", true);
-//        model.addAttribute("emailForm", new EmailForm());
+//        model.addAttribute("emailForm", new EmailModel());
 //        System.out.println(" > WYSŁANO < Adres nadawcy: " + emailForm.getEmail());
 //        return "index";
 //
