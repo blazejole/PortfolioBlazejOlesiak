@@ -4,19 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.blazejolesiak.demo.models.AboutModel;
-import pl.blazejolesiak.demo.models.ProjectModel;
-import pl.blazejolesiak.demo.models.TitleModel;
+import pl.blazejolesiak.demo.models.portfolioModel.AboutModel;
+import pl.blazejolesiak.demo.models.portfolioModel.ProjectModel;
+import pl.blazejolesiak.demo.models.portfolioModel.TitleModel;
 import pl.blazejolesiak.demo.models.EmailModel;
 
-import pl.blazejolesiak.demo.models.repositories.IAboutMeRepository;
-import pl.blazejolesiak.demo.models.repositories.IProjectRepository;
-import pl.blazejolesiak.demo.models.repositories.ITitleRepository;
+import pl.blazejolesiak.demo.models.repositories.portfolioRepository.IAboutMeRepository;
+import pl.blazejolesiak.demo.models.repositories.portfolioRepository.IProjectRepository;
+import pl.blazejolesiak.demo.models.repositories.portfolioRepository.ITitleRepository;
 import pl.blazejolesiak.demo.models.services.EmailService;
 import java.util.List;
 
 @Controller
-public class MainController {
+public class PortfolioController {
 
     @Autowired
     ITitleRepository iTitleRepository;
@@ -45,14 +45,14 @@ public class MainController {
     @ModelAttribute("aboutMe")
     AboutModel aboutMe(){return iAboutMeRepository.findOne(1);}
 
-    @RequestMapping ("/")
+    @RequestMapping ("/portfolio")
     public String index(Model model){
         model.addAttribute("emailForm", new EmailModel());
         return "index";
     }
 
-    @PostMapping("/")
-    public String sendEm(@ModelAttribute("emailModel") EmailModel emailModel, Model model){
+    @PostMapping("/portfolio")
+    public String sendEm(@ModelAttribute("emailForm") EmailModel emailModel, Model model){
         emailService.sendMessage(emailModel);
         model.addAttribute("message" , "Wiadomosc wyslana pod adres: blazej.olesiak@gmail.com");
         return "index";

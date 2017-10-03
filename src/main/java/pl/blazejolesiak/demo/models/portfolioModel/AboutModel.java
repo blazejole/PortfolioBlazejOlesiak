@@ -1,4 +1,4 @@
-package pl.blazejolesiak.demo.models;
+package pl.blazejolesiak.demo.models.portfolioModel;
 
 import javax.persistence.*;
 

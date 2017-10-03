@@ -1,8 +1,8 @@
-package pl.blazejolesiak.demo.models.repositories;
+package pl.blazejolesiak.demo.models.repositories.portfolioRepository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.blazejolesiak.demo.models.TitleModel;
+import pl.blazejolesiak.demo.models.portfolioModel.TitleModel;
 
 import java.util.Optional;
 @Repository

@@ -69,7 +69,7 @@
 
     <!-- Header -->
     <header>
-        <div class="container" id="maincontent" tabindex="-1" th:object="${titleMessage}">
+        <div class="container" id="maincontent" tabindex="-1" th:object="${titleMessage}" th:action="@{/portfolio}">
             <div class="row">
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profileBlazejOlesiak.jpg" width="250" height="60" alt="">
@@ -93,7 +93,7 @@
                 </div>
             </div>
             <div class="row">
-                <th:block th:each="project : ${myprojects}">
+                <th:block th:each="project : ${myprojects}" th:action="@{/portfolio}">
                 <div class="col-sm-4 project-item">
                     <a th:href="'#'+${project.id}" class="project-link" data-toggle="modal">
                         <div class="caption">
@@ -111,7 +111,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="success" id="about" th:object = "${aboutMe}" >
+    <section class="success" id="about" th:object = "${aboutMe}" th:action="@{/portfolio}" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -142,7 +142,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                <form th:if="${message} == null" name="sentMessage" id="contactForm" th:action="@{/}" th:object="${emailModel}" th:method="post">
+                <form th:if="${message} == null" name="sentMessage" id="contactForm" th:action="@{/portfolio}" th:object="${emailForm}" th:method="post">
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label for="name">Name</label>
@@ -242,7 +242,7 @@
     </div>
 
     <!-- Portfolio Modals -->
-<th:block th:each="project : ${myprojects}">
+<th:block th:each="project : ${myprojects}" th:action="@{/portfolio}">
     <div class="project-modal modal fade" th:id="${project.id}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">

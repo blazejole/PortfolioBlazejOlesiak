@@ -24,7 +24,8 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo("blazej.olesiak@gmail.com");
             helper.setSubject("PortfolioContact");
-            helper.setText("Wiadomość od uzytkownika: "+ emailModel.getMessage() + " numer telefonu kontaktowego: "+ emailModel.getPhonenumber()+ " adres wysylajacego: "+ emailModel.getEmail());
+            helper.setText("Wiadomość od uzytkownika: "+ emailModel.getMessage() +
+                    "\n--> numer telefonu kontaktowego: "+ emailModel.getPhonenumber()+ "\n--> adres wysylajacego: "+ emailModel.getEmail());
             helper.setReplyTo(emailModel.getEmail());
         } catch (MessagingException e) {
             e.printStackTrace();
