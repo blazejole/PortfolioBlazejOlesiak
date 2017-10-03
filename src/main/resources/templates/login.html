@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="register/css" href="css/register.css">
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <title >logUser</title>
+</head>
+<body>
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">logIn</h1>
+                <hr />
+            </div>
+        </div>
+        <div class="main-login main-center">
+            <form th:if="${messageToUser} == null" class="form-horizontal" method="post" th:object="${logModel}">
+
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Your username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" th:field="*{username}" class="form-control" name="username" id="username"  placeholder="Enter your userame"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" th:field="*{email}" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group ">
+                    <button type="submit" value="wyslij" class="btn btn-primary btn-lg btn-block login-button">Log in</button>
+                </div>
+                <!--<div class="login-register">-->
+                    <!--<a href="http://localhost:8080" type="button" >Login</a>-->
+                <!--</div>-->
+            </form>
+            <div>
+            <p th:if="${messageToUser} != null" th:text="${messageToUser}"></p>
+                <a href="http://localhost:8080/login" type="button">login page</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
